@@ -115,18 +115,18 @@ export default function StoryPage() {
       <section className="bg-[#3E2A1E] text-[#F6F1E7] px-4 sm:px-6 lg:px-8 py-14 sm:py-16" aria-label="Kanyakumari to Mumbai">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-center gap-4 sm:gap-6">
-            <div className="shrink-0 text-left">
-              <div className="font-display font-semibold text-2xl sm:text-3xl">Kanyakumari</div>
-              <div className="text-sm text-[#F6F1E7]/60">Tamil Nadu · where it began</div>
+            <div className="min-w-0 text-left">
+              <div className="font-display font-semibold text-xl sm:text-3xl">Kanyakumari</div>
+              <div className="text-xs sm:text-sm text-[#F6F1E7]/60">Tamil Nadu · where it began</div>
             </div>
-            <div className="flex-1 flex items-center" aria-hidden="true">
+            <div className="flex-1 min-w-[16px] flex items-center" aria-hidden="true">
               <span className="w-2.5 h-2.5 rounded-full bg-[#F6F1E7]" />
               <span className="flex-1 border-t-2 border-dashed" style={{ borderColor: `${TERRACOTTA}99` }} />
               <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: TERRACOTTA }} />
             </div>
-            <div className="shrink-0 text-right">
-              <div className="font-display font-semibold text-2xl sm:text-3xl">Mumbai</div>
-              <div className="text-sm text-[#F6F1E7]/60">Maharashtra · where it grows</div>
+            <div className="min-w-0 text-right">
+              <div className="font-display font-semibold text-xl sm:text-3xl">Mumbai</div>
+              <div className="text-xs sm:text-sm text-[#F6F1E7]/60">Maharashtra · where it grows</div>
             </div>
           </div>
         </div>
