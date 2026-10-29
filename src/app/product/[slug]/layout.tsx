@@ -10,7 +10,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
     title: product.name,
     description: truncate(`${product.subtitle}. ${product.description}`),
     path: `/product/${product.slug}`,
-    images: [{ url: product.image, alt: `${product.name} jar by ${SITE_NAME}` }],
+    images: [{ url: absoluteUrl(product.image), alt: `${product.name} jar by ${SITE_NAME}` }],
   });
 }
 

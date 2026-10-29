@@ -4,11 +4,12 @@ export const SITE_URL = 'https://vmpicklepantry.com';
 export const SITE_NAME = 'VM Pickle Pantry';
 export const DEFAULT_TITLE = 'VM Pickle Pantry | Authentic Pickles & Traditional Flavours';
 export const DEFAULT_DESCRIPTION =
-  'Small-batch South Indian pickles from VM Pickle Pantry: garlic, mixed, mango, narthangai (citron), chicken and mutton. Order online or on WhatsApp, with delivery across India.';
+  'Small-batch South Indian pickles: garlic, mixed, mango, citron, chicken and mutton. Order from VM Pickle Pantry online or on WhatsApp across India.';
 
 /** 1200x630 share image, used for Open Graph and Twitter cards. */
 export const SHARE_IMAGE = {
-  url: '/assets/og-image.jpg',
+  // Absolute on purpose: Vercel rewrites the host of relative image URLs on preview builds.
+  url: `${SITE_URL}/assets/og-image.jpg`,
   width: 1200,
   height: 630,
   alt: 'VM Pickle Pantry garlic, mixed and mango pickle jars',
