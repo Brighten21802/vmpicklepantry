@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Fraunces, Inter, Caveat, Outfit, Plus_Jakarta_Sans } from 'next/font/google';
+import { Fraunces } from 'next/font/google';
 import './globals.css';
 import { CartProvider } from '@/context/CartContext';
 import { Navbar } from '@/components/Navbar';
@@ -14,29 +14,11 @@ const fraunces = Fraunces({
   display: 'swap',
 });
 
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-});
-
-const caveat = Caveat({
-  subsets: ['latin'],
-  variable: '--font-caveat',
-  display: 'swap',
-});
-
-const outfit = Outfit({
-  subsets: ['latin'],
-  variable: '--font-outfit',
-  display: 'swap',
-});
-
-const plusJakartaSans = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  variable: '--font-sans',
-  display: 'swap',
-});
+// Only Fraunces (the headings) is loaded. Inter, Plus Jakarta Sans, Outfit and Caveat used to be loaded
+// too, but globals.css asks for them by plain name, which never matched the names Next 14 registered,
+// so they never rendered: body text has always used the visitor's default sans-serif.
+// They are no longer downloaded, which keeps the look identical and saves four font downloads per visit.
+// To switch the intended fonts on, load them here again (and see the font variables in globals.css).
 
 // Icons come from src/app/icon.png, apple-icon.png and favicon.ico (Next.js picks these up by file name).
 // Each page sets its own canonical URL through pageMetadata(); there is deliberately no site-wide canonical here.
@@ -108,7 +90,7 @@ export default function RootLayout({
   return (
     <html
       lang="en-IN"
-      className={`${fraunces.variable} ${inter.variable} ${caveat.variable} ${outfit.variable} ${plusJakartaSans.variable}`}
+      className={fraunces.variable}
     >
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }} />
