@@ -3,11 +3,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { PRODUCTS } from '@/config/products';
 import { PageHeader } from '@/components/PageHeader';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata = {
-  title: 'Spice Guide',
-  description: 'Find the right pickle for your heat tolerance, from mild citron to fiery Guntur chilli.',
-};
+export const metadata = pageMetadata({
+  title: 'Pickle Spice Guide',
+  description: "Find the right pickle for your heat tolerance, from mild citron to fiery Guntur chilli.",
+  path: '/spice-guide',
+});
 
 export default function SpiceGuidePage() {
   const jars = PRODUCTS.filter((p) => p.category !== 'bundle').sort((a, b) => a.spiceLevel - b.spiceLevel);

@@ -105,10 +105,10 @@ export const Navbar: React.FC = () => {
           </div>
 
           {/* Left / Logo */}
-          <Link className="flex items-center flex-shrink-0 mr-auto md:mr-0 pl-1 group" href="/" title="VM The Pickle Pantry">
+          <Link className="flex items-center flex-shrink-0 mr-auto md:mr-0 pl-1 group" href="/" title="VM Pickle Pantry">
             <Image
               src="/assets/logo-nav.png"
-              alt="VM The Pickle Pantry Logo"
+              alt="VM Pickle Pantry logo"
               width={140}
               height={93}
               priority
@@ -324,7 +324,7 @@ export const Navbar: React.FC = () => {
           <div className="flex flex-col items-center mb-6">
             <Image
               src="/assets/logo-nav.png"
-              alt="VM The Pickle Pantry"
+              alt="VM Pickle Pantry"
               width={160}
               height={107}
               className="w-40 h-auto mix-blend-multiply mb-4"

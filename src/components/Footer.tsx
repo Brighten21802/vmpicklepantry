@@ -17,14 +17,14 @@ export const Footer: React.FC = () => {
             <Link className="inline-block bg-[#FAF8F2] p-3 rounded-2xl" href="/">
               <Image
                 src="/assets/logo-nav.png"
-                alt="VM The Pickle Pantry"
+                alt="VM Pickle Pantry"
                 width={120}
                 height={36}
                 className="w-[120px] h-auto object-contain mix-blend-multiply"
               />
             </Link>
             <p className="text-xs sm:text-sm text-white/70 leading-relaxed max-w-sm">
-              VM The Pickle Pantry is a small-batch, artisanal kitchen established in 2024. Bold flavors. Real ingredients. Made from the heart with pure wood-pressed oils.
+              VM Pickle Pantry is a small-batch, artisanal kitchen established in 2024. Bold flavors. Real ingredients. Made from the heart with pure wood-pressed oils.
             </p>
             <div className="text-xs text-white/60 space-y-1 font-mono">
               {hasFssai && <div>FSSAI Central Lic: {SITE_CONFIG.fssaiNumber}</div>}

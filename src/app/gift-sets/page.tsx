@@ -3,11 +3,13 @@ import Link from 'next/link';
 import { PRODUCTS } from '@/config/products';
 import { ProductCard } from '@/components/ProductCard';
 import { PageHeader } from '@/components/PageHeader';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata = {
-  title: 'Gift Sets',
-  description: 'Pickle gift boxes for festivals, weddings and thank-yous.',
-};
+export const metadata = pageMetadata({
+  title: 'Pickle Gift Sets',
+  description: "Pickle gift boxes from VM Pickle Pantry for festivals, weddings and thank-yous.",
+  path: '/gift-sets',
+});
 
 export default function GiftSetsPage() {
   const sets = PRODUCTS.filter((p) => p.category === 'bundle');

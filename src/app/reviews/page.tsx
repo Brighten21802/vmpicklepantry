@@ -3,11 +3,13 @@ import Link from 'next/link';
 import { Star, BadgeCheck } from 'lucide-react';
 import { PRODUCTS, REVIEWS } from '@/config/products';
 import { PageHeader } from '@/components/PageHeader';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: 'Customer Reviews',
-  description: 'What customers say about our small-batch pickles.',
-};
+  description: "What customers say about VM Pickle Pantry pickles.",
+  path: '/reviews',
+});
 
 export default function ReviewsPage() {
   const jars = PRODUCTS.filter((p) => p.category !== 'bundle');

@@ -3,11 +3,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { TrustBadges } from '@/components/TrustBadges';
 import { SITE_CONFIG } from '@/config/products';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: 'Our Story',
-  description: 'VM Pickle Pantry is founded by Vimal Magesh, who brings the flavours of Kanyakumari to Mumbai.',
-};
+  description: "VM Pickle Pantry is founded by Vimal Magesh, who brings the flavours of Kanyakumari to Mumbai.",
+  path: '/story',
+});
 
 /**
  * Add Vimal's real portrait by putting the file in /public/assets and setting its path here,

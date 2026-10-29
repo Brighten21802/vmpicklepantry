@@ -1,10 +1,13 @@
 import React from 'react';
 import { SITE_CONFIG } from '@/config/products';
 import { PageHeader } from '@/components/PageHeader';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: 'Terms of Service',
-};
+  description: "How ordering, delivery and replacements work at VM Pickle Pantry.",
+  path: '/terms',
+});
 
 const sections = [
   {

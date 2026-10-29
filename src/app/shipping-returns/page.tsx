@@ -1,6 +1,14 @@
 import React from 'react';
 import { SITE_CONFIG } from '@/config/products';
 import { Truck, ShieldCheck, RefreshCw } from 'lucide-react';
+import { pageMetadata } from '@/lib/seo';
+
+export const metadata = pageMetadata({
+  title: 'Shipping and Replacement Policy',
+  description: "Delivery times, the free-shipping threshold and the replacement policy for damaged jars at VM Pickle Pantry.",
+  path: '/shipping-returns',
+});
+
 
 export default function ShippingReturnsPage() {
   return (

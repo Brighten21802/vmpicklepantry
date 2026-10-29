@@ -1,6 +1,14 @@
 import React from 'react';
 import { SITE_CONFIG } from '@/config/products';
 import { HelpCircle, ShieldCheck } from 'lucide-react';
+import { pageMetadata } from '@/lib/seo';
+
+export const metadata = pageMetadata({
+  title: 'Frequently Asked Questions',
+  description: "Answers about VM Pickle Pantry's pickles: storage, shelf life, delivery and the replacement policy.",
+  path: '/faq',
+});
+
 
 export default function FAQPage() {
   const faqs = [

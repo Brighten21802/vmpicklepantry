@@ -1,10 +1,13 @@
 import React from 'react';
 import { SITE_CONFIG, hasFssai } from '@/config/products';
 import { PageHeader } from '@/components/PageHeader';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: 'Privacy Policy',
-};
+  description: "How VM Pickle Pantry handles the details you share when you order.",
+  path: '/privacy',
+});
 
 const sections = [
   {

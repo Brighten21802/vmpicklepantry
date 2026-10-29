@@ -1,11 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
 import { PageHeader } from '@/components/PageHeader';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata = {
-  title: 'How We Make It',
-  description: 'From farm produce to a sealed jar: how every VM Pickle Pantry batch is made.',
-};
+export const metadata = pageMetadata({
+  title: 'How We Make Our Pickles',
+  description: "From farm produce to a sealed jar: how every VM Pickle Pantry batch is made.",
+  path: '/process',
+});
 
 // A real sequence, so the steps are numbered.
 const steps = [

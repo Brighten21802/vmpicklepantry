@@ -15,7 +15,6 @@ const PAGES = [
   '/faq',
   '/contact',
   '/corporate-gifting',
-  '/track-order',
   '/shipping-returns',
   '/privacy',
   '/terms',

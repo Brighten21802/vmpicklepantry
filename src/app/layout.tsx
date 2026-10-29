@@ -1,13 +1,12 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Fraunces, Inter, Caveat, Outfit, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 import { CartProvider } from '@/context/CartContext';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { CartDrawer } from '@/components/CartDrawer';
-import { SITE_CONFIG, PRODUCTS } from '@/config/products';
-
-const ALL_PRICES = PRODUCTS.flatMap((p) => p.sizes.map((s) => s.price));
+import { SITE_CONFIG } from '@/config/products';
+import { DEFAULT_DESCRIPTION, DEFAULT_TITLE, SHARE_IMAGE, SITE_NAME, SITE_URL, absoluteUrl } from '@/lib/seo';
 
 const fraunces = Fraunces({
   subsets: ['latin'],
@@ -39,37 +38,37 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   display: 'swap',
 });
 
+// Icons come from src/app/icon.png, apple-icon.png and favicon.ico (Next.js picks these up by file name).
+// Each page sets its own canonical URL through pageMetadata(); there is deliberately no site-wide canonical here.
 export const metadata: Metadata = {
-  metadataBase: new URL('https://vmpicklepantry.com'),
+  metadataBase: new URL(SITE_URL),
+  applicationName: SITE_NAME,
   title: {
-    default: `${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}`,
-    template: `%s | ${SITE_CONFIG.name}`,
+    default: DEFAULT_TITLE,
+    template: `%s | ${SITE_NAME}`,
   },
-  description: 'Purely homemade Indian pickles — Garlic, Mango, Mixed, Narthangai Citron, Boneless Chicken & Mutton pickles made with cold-pressed oils & zero added preservatives.',
-  keywords: [
-    'VM Pickle Pantry',
-    'homemade Indian pickle',
-    'Narthangai Citron pickle',
-    'Garlic Inferno pickle',
-    'boneless chicken pickle',
-    'mutton pickle',
-    'south indian pickle online',
-  ],
-  icons: {
-    icon: '/assets/logo.png',
-    apple: '/assets/logo.png',
-  },
+  description: DEFAULT_DESCRIPTION,
   openGraph: {
-    title: SITE_CONFIG.name,
-    description: SITE_CONFIG.tagline,
-    images: ['/assets/hero-floating-trio.png'],
-    locale: 'en_IN',
     type: 'website',
-    url: 'https://vmpicklepantry.com',
+    siteName: SITE_NAME,
+    locale: 'en_IN',
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    url: '/',
+    images: [SHARE_IMAGE],
   },
-  alternates: {
-    canonical: 'https://vmpicklepantry.com',
+  twitter: {
+    card: 'summary_large_image',
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    images: [SHARE_IMAGE.url],
   },
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#1F3A1A',
 };
 
 export default function RootLayout({
@@ -77,28 +76,43 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const jsonLd = {
+  // Only facts the site itself states: the brand, its logo, its founder and its WhatsApp number.
+  // No ratings, reviews, addresses or opening hours.
+  const organizationLd = {
     '@context': 'https://schema.org',
-    '@type': 'FoodEstablishment',
-    name: SITE_CONFIG.name,
-    description: SITE_CONFIG.tagline,
-    url: 'https://vmpicklepantry.com',
-    logo: 'https://vmpicklepantry.com/assets/logo.png',
-    currenciesAccepted: 'INR',
-    priceRange: `₹${Math.min(...ALL_PRICES)} - ₹${Math.max(...ALL_PRICES)}`,
-    servesCuisine: 'South Indian Homemade Pickles',
+    '@type': 'Organization',
+    '@id': `${SITE_URL}/#organization`,
+    name: SITE_NAME,
+    url: SITE_URL,
+    logo: absoluteUrl('/assets/logo.png'),
+    description: DEFAULT_DESCRIPTION,
+    founder: { '@type': 'Person', name: 'Vimal Magesh' },
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        contactType: 'customer support',
+        telephone: `+${SITE_CONFIG.whatsappNumber}`,
+      },
+    ],
+  };
+  const websiteLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${SITE_URL}/#website`,
+    name: SITE_NAME,
+    url: SITE_URL,
+    inLanguage: 'en-IN',
+    publisher: { '@id': `${SITE_URL}/#organization` },
   };
 
   return (
     <html
-      lang="en"
+      lang="en-IN"
       className={`${fraunces.variable} ${inter.variable} ${caveat.variable} ${outfit.variable} ${plusJakartaSans.variable}`}
     >
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }} />
       </head>
       <body className="bg-[#EFE9DD] text-[#1F3A1A] antialiased flex flex-col min-h-screen">
         <CartProvider>

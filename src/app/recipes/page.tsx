@@ -2,11 +2,13 @@ import React from 'react';
 import Link from 'next/link';
 import { PRODUCTS } from '@/config/products';
 import { PageHeader } from '@/components/PageHeader';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata = {
-  title: 'Ways to Eat It',
-  description: 'Simple meals that go with each pickle, from curd rice to biryani.',
-};
+export const metadata = pageMetadata({
+  title: 'Ways to Eat Pickle',
+  description: "Simple meals that go with each VM Pickle Pantry pickle, from curd rice to biryani.",
+  path: '/recipes',
+});
 
 const pairings = [
   { dish: 'Curd rice', slug: 'narthangai-citron-pickle', how: 'A little citron pickle on the side cuts through the cool curd.' },
