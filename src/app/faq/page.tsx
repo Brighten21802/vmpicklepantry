@@ -37,7 +37,7 @@ export default function FAQPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-10 pb-24">
       <div className="text-center space-y-2">
-        <span className="text-xs font-bold text-olive-600">
+        <span className="text-xs font-bold text-forest-600">
           Help & Guidance
         </span>
         <h1 className="font-display text-4xl text-forest-900">

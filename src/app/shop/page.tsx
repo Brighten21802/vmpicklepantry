@@ -105,7 +105,7 @@ function ShopContent() {
                 : 'bg-parchment-100 text-forest-900 hover:bg-white border border-forest-800/15'
             }`}
           >
-            <Sparkles className="w-3.5 h-3.5 text-olive-600" />
+            <Sparkles className="w-3.5 h-3.5 text-forest-600" />
             <span>Gift Boxes</span>
           </button>
         </div>

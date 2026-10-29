@@ -303,7 +303,7 @@ export const CartDrawer: React.FC = () => {
                   <div className="p-3.5 rounded-xl bg-parchment-200/80 border border-forest-800/15">
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-[11px] font-bold text-forest-900 flex items-center gap-1">
-                        <Sparkles className="w-3.5 h-3.5 text-olive-600" />
+                        <Sparkles className="w-3.5 h-3.5 text-forest-600" />
                         Goes Best With
                       </span>
                       <span className="text-xs font-display text-forest-900">₹{crossSellItem.price}</span>

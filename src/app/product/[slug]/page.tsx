@@ -137,7 +137,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
 
             {/* Sensory Tagline & Notes */}
             <div className="p-4 rounded-xl bg-parchment-100 border border-forest-800/10 space-y-2">
-              <div className="text-xs font-bold text-olive-600 flex items-center gap-1">
+              <div className="text-xs font-bold text-forest-600 flex items-center gap-1">
                 <Sparkles className="w-3.5 h-3.5" />
                 Taste & Aroma Profile
               </div>
