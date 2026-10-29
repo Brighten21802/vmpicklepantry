@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, use } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -23,8 +23,9 @@ import {
   Check,
 } from 'lucide-react';
 
-export default function ProductDetailPage({ params }: { params: { slug: string } }) {
-  const product = PRODUCTS.find((p) => p.slug === params.slug);
+export default function ProductDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = use(params);
+  const product = PRODUCTS.find((p) => p.slug === slug);
   if (!product) notFound();
 
   const defaultSize = product.sizes.find((s) => s.isPopular) || product.sizes[0];
@@ -55,7 +56,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
     <div className="space-y-12 pb-24">
       {/* Breadcrumb Navigation */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
-        <nav className="flex items-center gap-2 text-xs font-semibold text-forest-800/60">
+        <nav className="flex items-center gap-2 text-xs font-semibold text-forest-800/75">
           <Link href="/" className="hover:text-forest-900">Home</Link>
           <span>/</span>
           <Link href="/shop" className="hover:text-forest-900">Shop</Link>
@@ -96,15 +97,15 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
             {/* Guarantees Row */}
             <div className="grid grid-cols-3 gap-3 text-center">
               <div className="p-3 rounded-xl bg-white border border-forest-800/10">
-                <span className="block text-[10px] font-bold text-forest-800/60">Shelf Life</span>
+                <span className="block text-[10px] font-bold text-forest-800/75">Shelf Life</span>
                 <span className="text-xs font-bold text-forest-900">{product.shelfLife}</span>
               </div>
               <div className="p-3 rounded-xl bg-white border border-forest-800/10">
-                <span className="block text-[10px] font-bold text-forest-800/60">Batch</span>
+                <span className="block text-[10px] font-bold text-forest-800/75">Batch</span>
                 <span className="text-xs font-bold text-forest-900">Made Weekly</span>
               </div>
               <div className="p-3 rounded-xl bg-white border border-forest-800/10">
-                <span className="block text-[10px] font-bold text-forest-800/60">Preservatives</span>
+                <span className="block text-[10px] font-bold text-forest-800/75">Preservatives</span>
                 <span className="text-xs font-bold text-emerald-800">0% Added</span>
               </div>
             </div>
@@ -116,12 +117,12 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-1.5 text-amber-600 font-bold text-sm">
                   <Star className="w-4 h-4 fill-current" />
-                  <span>{product.rating.toFixed(1)}</span>
-                  <span className="text-forest-800/60 text-xs font-normal">
+                  <span className="text-amber-800">{product.rating.toFixed(1)}</span>
+                  <span className="text-forest-800/75 text-xs font-normal">
                     ({product.reviewCount} customer reviews)
                   </span>
                 </div>
-                <span className="text-xs text-forest-800/70 font-mono">
+                <span className="text-xs text-forest-800/75 font-mono">
                   SKU: {product.slug}
                 </span>
               </div>
@@ -162,14 +163,14 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
 
               <div className="pt-3 border-t border-forest-800/10 flex items-center justify-between">
                 <div>
-                  <div className="text-[10px] text-forest-800/60 font-bold ">
+                  <div className="text-[10px] text-forest-800/75 font-bold ">
                     Total ({selectedSize.name} • {selectedSize.volume})
                   </div>
                   <div className="flex items-baseline gap-2">
                     <span className="font-display text-3xl text-forest-900">
                       ₹{selectedSize.price}
                     </span>
-                    <span className="text-xs text-forest-800/60">
+                    <span className="text-xs text-forest-800/75">
                       (₹{selectedSize.pricePer100g}/100g)
                     </span>
                   </div>
@@ -235,7 +236,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
                   type="button"
                   onClick={() => setActiveTab('ingredients')}
                   className={`flex-1 py-3 px-4 text-center border-r border-forest-800/10 ${
-                    activeTab === 'ingredients' ? 'bg-white text-forest-900 border-b-2 border-b-forest-800' : 'text-forest-800/60'
+                    activeTab === 'ingredients' ? 'bg-white text-forest-900 border-b-2 border-b-forest-800' : 'text-forest-800/75'
                   }`}
                 >
                   Ingredients
@@ -244,7 +245,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
                   type="button"
                   onClick={() => setActiveTab('taste')}
                   className={`flex-1 py-3 px-4 text-center border-r border-forest-800/10 ${
-                    activeTab === 'taste' ? 'bg-white text-forest-900 border-b-2 border-b-forest-800' : 'text-forest-800/60'
+                    activeTab === 'taste' ? 'bg-white text-forest-900 border-b-2 border-b-forest-800' : 'text-forest-800/75'
                   }`}
                 >
                   Taste Notes
@@ -253,7 +254,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
                   type="button"
                   onClick={() => setActiveTab('storage')}
                   className={`flex-1 py-3 px-4 text-center border-r border-forest-800/10 ${
-                    activeTab === 'storage' ? 'bg-white text-forest-900 border-b-2 border-b-forest-800' : 'text-forest-800/60'
+                    activeTab === 'storage' ? 'bg-white text-forest-900 border-b-2 border-b-forest-800' : 'text-forest-800/75'
                   }`}
                 >
                   Storage
@@ -262,7 +263,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
                   type="button"
                   onClick={() => setActiveTab('promise')}
                   className={`flex-1 py-3 px-4 text-center ${
-                    activeTab === 'promise' ? 'bg-white text-forest-900 border-b-2 border-b-forest-800' : 'text-forest-800/60'
+                    activeTab === 'promise' ? 'bg-white text-forest-900 border-b-2 border-b-forest-800' : 'text-forest-800/75'
                   }`}
                 >
                   Promise
@@ -318,8 +319,8 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
                       />
                     </div>
                     <div>
-                      <h4 className="font-bold text-xs text-forest-900">{item.name}</h4>
-                      <p className="text-[10px] text-forest-800/70">{item.description}</p>
+                      <h3 className="font-bold text-xs text-forest-900">{item.name}</h3>
+                      <p className="text-[10px] text-forest-800/75">{item.description}</p>
                       <span className="font-display text-xs text-forest-900 mt-1 block">
                         ₹{item.price}
                       </span>
@@ -359,7 +360,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
       {/* STICKY BOTTOM MOBILE ADD TO CART BAR */}
       <div className="fixed bottom-0 inset-x-0 bg-parchment-100/95 backdrop-blur-md border-t border-forest-800/20 p-3 px-4 z-40 lg:hidden flex items-center justify-between gap-3 shadow-2xl">
         <div>
-          <span className="text-[10px] font-bold text-forest-800/60 block">
+          <span className="text-[10px] font-bold text-forest-800/75 block">
             {selectedSize.name} ({selectedSize.volume})
           </span>
           <span className="font-display text-xl text-forest-900">₹{selectedSize.price}</span>

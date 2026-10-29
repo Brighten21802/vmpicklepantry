@@ -29,7 +29,7 @@ export default function ReviewsPage() {
             <span className="flex items-center gap-1.5 text-sm text-forest-800">
               <Star className="w-4 h-4 fill-[#DE9B27] text-[#DE9B27]" />
               <strong>{p.rating.toFixed(1)}</strong>
-              <span className="text-forest-800/50">({p.reviewCount})</span>
+              <span className="text-forest-800/75">({p.reviewCount})</span>
             </span>
           </Link>
         ))}
@@ -53,7 +53,7 @@ export default function ReviewsPage() {
                   {r.author}
                   {r.verifiedPurchase && <BadgeCheck className="w-3.5 h-3.5 text-emerald-700" aria-label="Verified purchase" />}
                 </div>
-                <div className="text-forest-800/60">{r.productName} · {r.date}</div>
+                <div className="text-forest-800/75">{r.productName} · {r.date}</div>
               </div>
             </figcaption>
           </figure>

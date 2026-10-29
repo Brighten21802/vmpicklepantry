@@ -31,14 +31,14 @@ export default function ContactPage() {
             <MessageCircle className="w-5 h-5 text-emerald-700 mt-0.5" />
             <div className="text-sm">
               <div className="font-semibold text-forest-900">WhatsApp</div>
-              <div className="text-forest-800/70">Chat or place an order</div>
+              <div className="text-forest-800/75">Chat or place an order</div>
             </div>
           </a>
           <a href={`mailto:${EMAIL}`} className="card-lift flex items-start gap-3 p-5 rounded-2xl bg-white border border-forest-800/10">
             <Mail className="w-5 h-5 text-forest-800 mt-0.5" />
             <div className="text-sm min-w-0">
               <div className="font-semibold text-forest-900">Email</div>
-              <div className="text-forest-800/70 break-all">{EMAIL}</div>
+              <div className="text-forest-800/75 break-all">{EMAIL}</div>
             </div>
           </a>
           <a
@@ -50,13 +50,13 @@ export default function ContactPage() {
             <MapPin className="w-5 h-5 text-forest-800 mt-0.5" />
             <div className="text-sm">
               <div className="font-semibold text-forest-900">MKS Cooking</div>
-              <div className="text-forest-800/70">Our restaurant in Marol, Mumbai</div>
+              <div className="text-forest-800/75">Our restaurant in Marol, Mumbai</div>
             </div>
           </a>          <div className="flex items-start gap-3 p-5 rounded-2xl bg-white border border-forest-800/10">
             <Clock className="w-5 h-5 text-forest-800 mt-0.5" />
             <div className="text-sm">
               <div className="font-semibold text-forest-900">Dispatch days</div>
-              <div className="text-forest-800/70">Fresh batches ship every Wednesday.</div>
+              <div className="text-forest-800/75">Fresh batches ship every Wednesday.</div>
             </div>
           </div>
         </div>
@@ -98,7 +98,7 @@ export default function ContactPage() {
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div>
             <h2 className="font-display font-semibold text-2xl sm:text-3xl text-forest-900">Find MKS Cooking</h2>
-            <p className="text-sm text-forest-800/70">Our restaurant in Marol, Mumbai.</p>
+            <p className="text-sm text-forest-800/75">Our restaurant in Marol, Mumbai.</p>
           </div>
           <a
             href={SITE_CONFIG.mksCookingUrl}

@@ -23,7 +23,7 @@ export const SizeSelector: React.FC<SizeSelectorProps> = ({
         </label>
         <span className="text-xs font-medium text-forest-800">
           ₹{selectedSize.pricePer100g}
-          <span className="text-forest-800/60 font-normal">/100g</span>
+          <span className="text-forest-800/75 font-normal">/100g</span>
         </span>
       </div>
 
@@ -92,7 +92,7 @@ export const SizeSelector: React.FC<SizeSelectorProps> = ({
                   </span>
                   <span
                     className={`text-[10px] ${
-                      isSelected ? 'text-parchment-200/80' : 'text-forest-800/60'
+                      isSelected ? 'text-parchment-200/80' : 'text-forest-800/75'
                     }`}
                   >
                     {size.volume}
@@ -111,7 +111,7 @@ export const SizeSelector: React.FC<SizeSelectorProps> = ({
                   {!compact && (
                     <span
                       className={`text-[10px] ${
-                        isSelected ? 'text-parchment-200/70' : 'text-forest-800/50'
+                        isSelected ? 'text-parchment-200/70' : 'text-forest-800/75'
                       }`}
                     >
                       ₹{size.pricePer100g}/100g

@@ -23,10 +23,10 @@ export const TrustBadges: React.FC<{ className?: string }> = ({ className = '' }
                 {iconMap[badge.icon] || <Award className="w-5 h-5 text-forest-800" />}
               </div>
               <div>
-                <h4 className="font-bold text-xs text-forest-900 tracking-tight">
+                <h2 className="font-bold text-xs text-forest-900 tracking-tight">
                   {badge.title}
-                </h4>
-                <p className="text-[11px] text-forest-800/70 leading-snug">
+                </h2>
+                <p className="text-[11px] text-forest-800/75 leading-snug">
                   {badge.subtitle}
                 </p>
               </div>
@@ -42,7 +42,7 @@ export const TrustBadges: React.FC<{ className?: string }> = ({ className = '' }
               FSSAI License: <span className="font-mono font-bold ">{SITE_CONFIG.fssaiNumber}</span>
             </div>
           )}
-          <div className="text-[11px] text-forest-800/70 font-medium">
+          <div className="text-[11px] text-forest-800/75 font-medium">
             {SITE_CONFIG.batchNotice}
           </div>
         </div>

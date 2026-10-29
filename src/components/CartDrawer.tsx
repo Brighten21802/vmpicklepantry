@@ -69,8 +69,13 @@ export const CartDrawer: React.FC = () => {
   if (!isOpen) return null;
 
   // Add-ons (e.g. a spice mix) ride on a jar's product record, so name the line by the add-on
+  // Single-size products (the gift box) are named by the product alone, to avoid "Name (Name)" repeats.
   const itemLabel = (i: CartItem) =>
-    i.size.id.startsWith('addon-') ? i.size.name : `${i.product.name} (${i.size.name})`;
+    i.size.id.startsWith('addon-')
+      ? i.size.name
+      : i.product.sizes.length === 1
+      ? i.product.name
+      : `${i.product.name} (${i.size.name})`;
 
   const paymentLabel = { upi: 'UPI', card: 'Card / Net banking', cod: 'Cash on delivery' }[paymentMethod];
 
@@ -120,7 +125,12 @@ export const CartDrawer: React.FC = () => {
       />
 
       <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
-        <div className="w-screen max-w-md bg-parchment-100 border-l border-forest-800/10 shadow-2xl flex flex-col justify-between">
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Shopping bag"
+          className="w-screen max-w-md bg-parchment-100 border-l border-forest-800/10 shadow-2xl flex flex-col justify-between"
+        >
           {/* Header */}
           <div className="p-4 sm:p-6 border-b border-forest-800/10 bg-parchment-200/60 flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -132,6 +142,7 @@ export const CartDrawer: React.FC = () => {
             <button
               type="button"
               onClick={closeCart}
+              aria-label="Close shopping bag"
               className="p-2 rounded-full text-forest-800 hover:bg-parchment-300/60 transition-colors"
             >
               <X className="w-5 h-5" />
@@ -197,11 +208,11 @@ export const CartDrawer: React.FC = () => {
               </div>
             ) : items.length === 0 ? (
               <div className="text-center py-12 space-y-3">
-                <div className="w-16 h-16 rounded-full bg-parchment-200 text-forest-800/40 flex items-center justify-center mx-auto">
+                <div className="w-16 h-16 rounded-full bg-parchment-200 text-forest-800/75 flex items-center justify-center mx-auto">
                   <ShoppingBag className="w-8 h-8" />
                 </div>
                 <h3 className="font-display text-lg text-forest-900">Your cart is empty</h3>
-                <p className="text-xs text-forest-800/70 max-w-xs mx-auto">
+                <p className="text-xs text-forest-800/75 max-w-xs mx-auto">
                   Discover our small-batch, homemade Narthangai Citron and Garlic Inferno pickles.
                 </p>
                 <button
@@ -238,7 +249,7 @@ export const CartDrawer: React.FC = () => {
                           <button
                             type="button"
                             onClick={() => removeItem(item.product.id, item.size.id)}
-                            className="text-forest-800/40 hover:text-red-700 transition-colors"
+                            className="text-forest-800/75 hover:text-red-700 transition-colors"
                             title="Remove"
                           >
                             <Trash2 className="w-3.5 h-3.5" />
@@ -249,7 +260,7 @@ export const CartDrawer: React.FC = () => {
                             {item.size.id.startsWith('addon-') ? item.size.volume : `${item.size.name} (${item.size.volume})`}
                           </span>
                           {!item.size.id.startsWith('addon-') && (
-                            <span className="text-[10px] text-forest-800/60">
+                            <span className="text-[10px] text-forest-800/75">
                               ₹{item.size.pricePer100g}/100g
                             </span>
                           )}
@@ -310,7 +321,7 @@ export const CartDrawer: React.FC = () => {
                         <h5 className="font-bold text-xs text-forest-900 truncate">
                           {crossSellItem.name}
                         </h5>
-                        <p className="text-[10px] text-forest-800/70 line-clamp-1">
+                        <p className="text-[10px] text-forest-800/75 line-clamp-1">
                           {crossSellItem.description}
                         </p>
                       </div>
@@ -355,6 +366,8 @@ export const CartDrawer: React.FC = () => {
                   <form onSubmit={handlePincodeSubmit} className="flex gap-2">
                     <input
                       type="text"
+                      inputMode="numeric"
+                      aria-label="Delivery pincode"
                       maxLength={6}
                       value={pincode}
                       onChange={(e) => setPincode(e.target.value)}
@@ -378,7 +391,7 @@ export const CartDrawer: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => setCheckoutStep('cart')}
-                    className="text-xs text-forest-800/70 underline"
+                    className="text-xs text-forest-800/75 underline"
                   >
                     Back to cart
                   </button>
@@ -386,11 +399,13 @@ export const CartDrawer: React.FC = () => {
 
                 <div className="space-y-3">
                   <div>
-                    <label className="block text-xs font-semibold text-forest-900 mb-1">
+                    <label htmlFor="checkout-name" className="block text-xs font-semibold text-forest-900 mb-1">
                       Full Name *
                     </label>
                     <input
+                      id="checkout-name"
                       type="text"
+                      autoComplete="name"
                       required
                       value={customerName}
                       onChange={(e) => setCustomerName(e.target.value)}
@@ -400,11 +415,13 @@ export const CartDrawer: React.FC = () => {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-forest-900 mb-1">
+                    <label htmlFor="checkout-phone" className="block text-xs font-semibold text-forest-900 mb-1">
                       Phone Number (for Delivery Updates) *
                     </label>
                     <input
+                      id="checkout-phone"
                       type="tel"
+                      autoComplete="tel"
                       required
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
@@ -414,10 +431,12 @@ export const CartDrawer: React.FC = () => {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-forest-900 mb-1">
+                    <label htmlFor="checkout-address" className="block text-xs font-semibold text-forest-900 mb-1">
                       Complete Delivery Address *
                     </label>
                     <textarea
+                      id="checkout-address"
+                      autoComplete="street-address"
                       required
                       rows={2}
                       value={address}
@@ -428,10 +447,10 @@ export const CartDrawer: React.FC = () => {
                   </div>
 
                   {/* Payment Method Switcher */}
-                  <div>
-                    <label className="block text-xs font-semibold text-forest-900 mb-1.5">
+                  <div role="group" aria-labelledby="checkout-payment-label">
+                    <span id="checkout-payment-label" className="block text-xs font-semibold text-forest-900 mb-1.5">
                       Select Payment Method *
-                    </label>
+                    </span>
                     <div className="grid grid-cols-3 gap-2">
                       <button
                         type="button"
@@ -475,11 +494,13 @@ export const CartDrawer: React.FC = () => {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-forest-900 mb-1">
+                    <label htmlFor="checkout-pincode" className="block text-xs font-semibold text-forest-900 mb-1">
                       Pincode *
                     </label>
                     <input
+                      id="checkout-pincode"
                       type="text"
+                      autoComplete="postal-code"
                       inputMode="numeric"
                       maxLength={6}
                       value={pincode}

@@ -96,7 +96,7 @@ export default function HomeClient() {
                   Our story
                 </Link>
               </div>
-              <p className="mt-6 text-sm text-[#1F3A1A]/60">
+              <p className="mt-6 text-sm text-[#1F3A1A]/75">
                 Free shipping over ₹{SITE_CONFIG.freeShippingThreshold} · <NextDispatch />
               </p>
             </div>
@@ -120,7 +120,7 @@ export default function HomeClient() {
       <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto" id="featured-trio">
         <div className="text-center max-w-2xl mx-auto mb-14">
           <h2 className="font-display font-semibold text-4xl sm:text-5xl text-[#1F3A1A] tracking-tight">Start with the classics.</h2>
-          <p className="mt-4 text-lg text-[#1F3A1A]/70">
+          <p className="mt-4 text-lg text-[#1F3A1A]/75">
             Three jars we make every week. Pick a size and add it to your bag.
           </p>
         </div>
@@ -143,7 +143,7 @@ export default function HomeClient() {
                 <Link href={`/product/${slug}`}>
                   <h3 className="font-display font-semibold text-2xl text-[#1F3A1A]">{product.name}</h3>
                 </Link>
-                <p className="mt-2 text-sm text-[#1F3A1A]/70 leading-relaxed flex-1">{note}</p>
+                <p className="mt-2 text-sm text-[#1F3A1A]/75 leading-relaxed flex-1">{note}</p>
 
                 <div className="mt-6 grid grid-cols-3 gap-2" role="radiogroup" aria-label={`${product.name} size`}>
                   {product.sizes.map((s) => (
@@ -189,7 +189,7 @@ export default function HomeClient() {
             <div key={title} className="space-y-2 text-center lg:text-left">
               <Icon className="w-6 h-6 text-accent-500 mx-auto lg:mx-0" strokeWidth={1.5} />
               <h3 className="font-display font-semibold text-lg text-[#1F3A1A]">{title}</h3>
-              <p className="text-sm text-[#1F3A1A]/65 leading-relaxed">{text}</p>
+              <p className="text-sm text-[#1F3A1A]/75 leading-relaxed">{text}</p>
             </div>
           ))}
         </div>
@@ -199,7 +199,7 @@ export default function HomeClient() {
       <section className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto" id="pickles-collection">
         <div className="text-center max-w-2xl mx-auto mb-10">
           <h2 className="font-display font-semibold text-4xl sm:text-5xl text-[#1F3A1A] tracking-tight">The full range.</h2>
-          <p className="mt-4 text-lg text-[#1F3A1A]/70">
+          <p className="mt-4 text-lg text-[#1F3A1A]/75">
             Made in small batches and bottled weekly. No fillers, no synthetic vinegar.
           </p>
         </div>
@@ -214,11 +214,11 @@ export default function HomeClient() {
                 aria-selected={tab === t.id}
                 onClick={() => setTab(t.id)}
                 className={`px-5 py-2 rounded-full text-sm font-medium transition-colors ${
-                  tab === t.id ? 'bg-white text-[#1F3A1A] shadow-sm' : 'text-[#1F3A1A]/65 hover:text-[#1F3A1A]'
+                  tab === t.id ? 'bg-white text-[#1F3A1A] shadow-sm' : 'text-[#1F3A1A]/75 hover:text-[#1F3A1A]'
                 }`}
               >
                 {t.label}
-                <span className="ml-1.5 text-[#1F3A1A]/40">{PRODUCTS.filter((p) => matchesTab(p, t.id)).length}</span>
+                <span className="ml-1.5 text-[#1F3A1A]/75">{PRODUCTS.filter((p) => matchesTab(p, t.id)).length}</span>
               </button>
             ))}
           </div>
@@ -235,7 +235,7 @@ export default function HomeClient() {
       <section className="py-20 bg-[#F1ECE0] border-y border-[#1F3A1A]/[0.08] px-4 sm:px-6" id="spice-meter">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="font-display font-semibold text-4xl sm:text-5xl text-[#1F3A1A] tracking-tight">How hot do you like it?</h2>
-          <p className="mt-4 text-lg text-[#1F3A1A]/70">Choose a heat level and we&apos;ll suggest a jar.</p>
+          <p className="mt-4 text-lg text-[#1F3A1A]/75">Choose a heat level and we&apos;ll suggest a jar.</p>
 
           <div className="mt-10 grid grid-cols-5 gap-2 sm:gap-3" role="radiogroup" aria-label="Heat level">
             {SPICE_LEVELS.map((s) => (
@@ -258,7 +258,7 @@ export default function HomeClient() {
           <div className="mt-6 bg-white rounded-3xl border border-[#1F3A1A]/10 p-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-left">
             <div>
               <h3 className="font-display font-semibold text-xl text-[#1F3A1A]">{currentSpice.title}</h3>
-              <p className="text-sm text-[#1F3A1A]/70 mt-1">{currentSpice.desc}</p>
+              <p className="text-sm text-[#1F3A1A]/75 mt-1">{currentSpice.desc}</p>
             </div>
             <Link
               href={`/product/${currentSpice.slug}`}
@@ -305,7 +305,7 @@ export default function HomeClient() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <h2 className="font-display font-semibold text-4xl sm:text-5xl text-[#1F3A1A] tracking-tight">Loved across India.</h2>
-            <p className="mt-4 text-lg text-[#1F3A1A]/70">From Bengaluru to Delhi, and a few kitchens in between.</p>
+            <p className="mt-4 text-lg text-[#1F3A1A]/75">From Bengaluru to Delhi, and a few kitchens in between.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -319,7 +319,7 @@ export default function HomeClient() {
                 <blockquote className="text-[15px] text-[#1c1c18]/80 leading-relaxed flex-1">&ldquo;{r.comment}&rdquo;</blockquote>
                 <figcaption className="mt-5 pt-4 border-t border-[#1F3A1A]/10 text-sm">
                   <div className="font-semibold text-[#1F3A1A]">{r.author}</div>
-                  <div className="text-[#1c1c18]/50">{r.location}</div>
+                  <div className="text-[#1c1c18]/75">{r.location}</div>
                 </figcaption>
               </figure>
             ))}

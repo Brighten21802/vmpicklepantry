@@ -10,9 +10,12 @@ import { ShoppingBag, Star, Check } from 'lucide-react';
 
 interface ProductCardProps {
   product: Product;
+  /** Heading level for the product name. Use h2 on pages where cards sit directly under the h1. */
+  headingLevel?: 'h2' | 'h3';
 }
 
-export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+export const ProductCard: React.FC<ProductCardProps> = ({ product, headingLevel = 'h3' }) => {
+  const Heading = headingLevel;
   const { addItem } = useCart();
   const defaultSize = product.sizes.find((s) => s.isPopular) || product.sizes[0];
   const [selectedSize, setSelectedSize] = useState<ProductSize>(defaultSize);
@@ -88,9 +91,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           </div>
 
           <Link href={`/product/${product.slug}`}>
-            <h3 className="font-['Outfit',sans-serif] font-bold text-lg text-[#1F3A1A] group-hover:text-accent-500 transition-colors">
+            <Heading className="font-['Outfit',sans-serif] font-bold text-lg text-[#1F3A1A] group-hover:text-accent-500 transition-colors">
               {product.name}
-            </h3>
+            </Heading>
           </Link>
 
           <p className="text-xs text-stone-600 mt-1 line-clamp-2">
@@ -106,7 +109,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             <label className="text-[10px] font-semibold text-stone-500 ">
               Pack Size:
             </label>
-            <span className="text-[10px] text-stone-400 font-mono">
+            <span className="text-[10px] text-stone-500 font-mono">
               ₹{selectedSize.pricePer100g}/100g
             </span>
           </div>
@@ -133,7 +136,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
           <div className="flex items-center justify-between">
             <div>
-              <span className="text-[10px] text-stone-400 block -mb-0.5 font-mono">Price:</span>
+              <span className="text-[10px] text-stone-500 block -mb-0.5 font-mono">Price:</span>
               <span className="text-xl font-bold font-['Outfit',sans-serif] text-[#1F3A1A]">
                 ₹{selectedSize.price}
               </span>

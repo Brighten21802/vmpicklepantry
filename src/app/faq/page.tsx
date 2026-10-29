@@ -51,10 +51,10 @@ export default function FAQPage() {
             key={idx}
             className="p-6 rounded-2xl bg-white border border-forest-800/10 shadow-xs space-y-2"
           >
-            <h3 className="font-bold text-sm text-forest-900 flex items-start gap-2">
+            <h2 className="font-bold text-sm text-forest-900 flex items-start gap-2">
               <HelpCircle className="w-4 h-4 text-forest-800 shrink-0 mt-0.5" />
               <span>{faq.q}</span>
-            </h3>
+            </h2>
             <p className="text-xs text-forest-800/80 leading-relaxed pl-6">
               {faq.a}
             </p>

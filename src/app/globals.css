@@ -11,6 +11,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 7.5rem; /* keep in-page anchors clear of the sticky header */
 }
 
 body {

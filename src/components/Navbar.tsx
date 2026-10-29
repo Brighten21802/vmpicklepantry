@@ -202,7 +202,7 @@ export const Navbar: React.FC = () => {
           >
             <div className="max-w-5xl mx-auto py-8 px-8 grid grid-cols-1 md:grid-cols-3 gap-10">
               <div>
-                <span className="text-[11px] font-bold tracking-[0.08em] text-[#1F3A1A]/50 block mb-3">By Category</span>
+                <span className="text-[11px] font-bold tracking-[0.08em] text-[#1F3A1A]/75 block mb-3">By Category</span>
                 <ul className="space-y-2.5 text-[13px] text-[#1F3A1A]/85 font-medium">
                   <li><Link className="hover:text-[#1F3A1A] hover:translate-x-0.5 inline-block transition-transform" href="/#featured-trio">Signature Trio (Garlic, Mixed, Mango)</Link></li>
                   <li><Link className="hover:text-[#1F3A1A] hover:translate-x-0.5 inline-block transition-transform" href="/shop?category=veg">Vegetarian Pantry Pickles</Link></li>
@@ -212,11 +212,11 @@ export const Navbar: React.FC = () => {
               </div>
 
               <div>
-                <span className="text-[11px] font-bold tracking-[0.08em] text-[#1F3A1A]/50 block mb-3">By Heat Level</span>
+                <span className="text-[11px] font-bold tracking-[0.08em] text-[#1F3A1A]/75 block mb-3">By Heat Level</span>
                 <ul className="space-y-2.5 text-[13px] text-[#1F3A1A]/85">
-                  <li><Link className="hover:text-[#1F3A1A] flex items-center justify-between" href="/#spice-meter"><span className="font-medium">Mild &amp; Tangy</span> <span className="text-[11px] text-[#1F3A1A]/50">Curd Rice Friendly</span></Link></li>
-                  <li><Link className="hover:text-[#1F3A1A] flex items-center justify-between" href="/#spice-meter"><span className="font-medium">Homestyle Medium</span> <span className="text-[11px] text-[#1F3A1A]/50">Standard Kitchen</span></Link></li>
-                  <li><Link className="hover:text-[#1F3A1A] flex items-center justify-between" href="/#spice-meter"><span className="font-medium">Guntur High Heat</span> <span className="text-[11px] text-[#1F3A1A]/50">S17 Sun Roasted</span></Link></li>
+                  <li><Link className="hover:text-[#1F3A1A] flex items-center justify-between" href="/#spice-meter"><span className="font-medium">Mild &amp; Tangy</span> <span className="text-[11px] text-[#1F3A1A]/75">Curd Rice Friendly</span></Link></li>
+                  <li><Link className="hover:text-[#1F3A1A] flex items-center justify-between" href="/#spice-meter"><span className="font-medium">Homestyle Medium</span> <span className="text-[11px] text-[#1F3A1A]/75">Standard Kitchen</span></Link></li>
+                  <li><Link className="hover:text-[#1F3A1A] flex items-center justify-between" href="/#spice-meter"><span className="font-medium">Guntur High Heat</span> <span className="text-[11px] text-[#1F3A1A]/75">S17 Sun Roasted</span></Link></li>
                   <li><Link className="hover:text-[#1F3A1A] flex items-center justify-between" href="/#spice-meter"><span className="font-medium">Garlic Inferno</span> <span className="text-[11px] text-[#6B1F2E] font-semibold">Peak Fire</span></Link></li>
                 </ul>
               </div>
@@ -234,7 +234,7 @@ export const Navbar: React.FC = () => {
                   <Link className="font-semibold text-sm text-[#1F3A1A] hover:underline flex items-center gap-1 leading-snug" href="/#featured-trio">
                     Artisanal Trio Pack ›
                   </Link>
-                  <p className="text-[11px] text-[#1F3A1A]/70 mt-1 line-clamp-2">Garlic, Mixed &amp; Mango fresh batches cured in native gingelly &amp; mustard oil.</p>
+                  <p className="text-[11px] text-[#1F3A1A]/75 mt-1 line-clamp-2">Garlic, Mixed &amp; Mango fresh batches cured in native gingelly &amp; mustard oil.</p>
                 </div>
               </div>
             </div>
@@ -246,7 +246,7 @@ export const Navbar: React.FC = () => {
           <div className="absolute top-0 left-0 w-full h-[76px] bg-[#EFE9DD]/98 border-b border-[#1F3A1A]/[0.08] z-50 px-6 backdrop-blur-md">
             <div className="max-w-[1200px] mx-auto h-full flex items-center justify-between gap-4">
               <div className="flex items-center gap-3 flex-1">
-                <svg className="w-4 h-4 text-[#1F3A1A]/50 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 text-[#1F3A1A]/75 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                   <circle cx="11" cy="11" r="7"></circle>
                   <path d="M21 21l-4.35-4.35" strokeLinecap="round"></path>
                 </svg>
@@ -260,7 +260,7 @@ export const Navbar: React.FC = () => {
                   aria-label="Search products"
                 />
               </div>
-              <div className="hidden lg:flex items-center gap-2 text-[11px] text-[#1F3A1A]/60">
+              <div className="hidden lg:flex items-center gap-2 text-[11px] text-[#1F3A1A]/75">
                 <span>Popular:</span>
                 <button type="button" className="hover:text-[#1F3A1A] underline underline-offset-2" onClick={() => fillSearch('Garlic Pickle')}>Garlic Pickle</button>
                 <span>·</span>
@@ -272,7 +272,7 @@ export const Navbar: React.FC = () => {
               </div>
               <button
                 type="button"
-                className="text-[12px] font-medium text-[#1F3A1A]/70 hover:text-[#1F3A1A] px-2 py-1"
+                className="text-[12px] font-medium text-[#1F3A1A]/75 hover:text-[#1F3A1A] px-2 py-1"
                 onClick={handleCloseSearch}
               >
                 Cancel
@@ -301,15 +301,15 @@ export const Navbar: React.FC = () => {
                         </span>
                         <span className="flex-1 min-w-0">
                           <span className="block text-sm font-semibold text-[#1F3A1A]">{p.name}</span>
-                          <span className="block text-xs text-[#1F3A1A]/60 truncate">{p.tagline}</span>
+                          <span className="block text-xs text-[#1F3A1A]/75 truncate">{p.tagline}</span>
                         </span>
-                        <span className="text-sm text-[#1F3A1A]/70">from ₹{Math.min(...p.sizes.map((s) => s.price))}</span>
+                        <span className="text-sm text-[#1F3A1A]/75">from ₹{Math.min(...p.sizes.map((s) => s.price))}</span>
                       </Link>
                     </li>
                   ))}
                 </ul>
               ) : (
-                <p className="text-sm text-[#1F3A1A]/70 py-2">
+                <p className="text-sm text-[#1F3A1A]/75 py-2">
                   No pickles match &ldquo;{searchQuery.trim()}&rdquo;. Try garlic, mango, citron, chicken or mutton.
                 </p>
               )}
@@ -340,7 +340,7 @@ export const Navbar: React.FC = () => {
             <Link className="block text-2xl font-bold text-[#1F3A1A] hover:opacity-75 transition-opacity" href="/story" onClick={() => setMobileMenuOpen(false)}>Our Story</Link>
             <Link className="block text-2xl font-bold text-[#1F3A1A] hover:opacity-75 transition-opacity" href="/contact" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
           </div>
-          <div className="pt-8 border-t border-[#1F3A1A]/10 text-xs text-center text-[#1F3A1A]/70 space-y-1">
+          <div className="pt-8 border-t border-[#1F3A1A]/10 text-xs text-center text-[#1F3A1A]/75 space-y-1">
             <div className="font-medium">Pure Wood-Pressed Gingelly &amp; Cold Spices</div>
           </div>
         </div>

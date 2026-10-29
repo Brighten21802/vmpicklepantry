@@ -139,7 +139,7 @@ export default function StoryPage() {
         <dl className="max-w-5xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4">
           {HIGHLIGHTS.map((h) => (
             <div key={h.label} className="rounded-[24px] bg-white border border-[#3E2A1E]/10 p-6">
-              <dt className="text-sm text-[#3E2A1E]/55">{h.label}</dt>
+              <dt className="text-sm text-[#3E2A1E]/75">{h.label}</dt>
               <dd className="mt-1 font-display font-semibold text-lg text-[#1F3A1A] leading-snug">{h.value}</dd>
               {h.href && (
                 <a href={h.href} target="_blank" rel="noopener noreferrer" className="mt-2 inline-block text-sm font-semibold text-accent-500 hover:underline underline-offset-4">

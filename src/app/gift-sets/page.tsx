@@ -23,7 +23,7 @@ export default function GiftSetsPage() {
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
         {sets.map((p) => (
-          <ProductCard key={p.id} product={p} />
+          <ProductCard key={p.id} product={p} headingLevel="h2" />
         ))}
       </div>
 

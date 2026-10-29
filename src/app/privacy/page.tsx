@@ -47,7 +47,7 @@ export default function PrivacyPage() {
           </section>
         ))}
         {hasFssai && (
-          <p className="text-sm text-forest-800/60 pt-4 border-t border-forest-800/10">
+          <p className="text-sm text-forest-800/75 pt-4 border-t border-forest-800/10">
             FSSAI license number: {SITE_CONFIG.fssaiNumber}
           </p>
         )}

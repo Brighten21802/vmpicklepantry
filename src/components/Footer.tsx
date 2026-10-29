@@ -33,7 +33,7 @@ export const Footer: React.FC = () => {
 
           {/* Col 2: Pantry Links */}
           <div className="lg:col-span-2 space-y-3">
-            <h4 className="font-['Outfit',sans-serif] font-bold text-sm text-[#DE9B27] ">The Pantry</h4>
+            <h2 className="font-['Outfit',sans-serif] font-bold text-sm text-[#DE9B27] ">The Pantry</h2>
             <ul className="text-xs space-y-2 text-white/80">
               <li><Link className="hover:text-white transition-colors" href="/#featured-trio">Signature Trio</Link></li>
               <li><Link className="hover:text-white transition-colors" href="/product/garlic-pickle">Garlic Pickle</Link></li>
@@ -50,7 +50,7 @@ export const Footer: React.FC = () => {
 
           {/* Col 3: Care & Orders */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="font-['Outfit',sans-serif] font-bold text-sm text-[#DE9B27] ">Orders &amp; Care</h4>
+            <h2 className="font-['Outfit',sans-serif] font-bold text-sm text-[#DE9B27] ">Orders &amp; Care</h2>
             <ul className="text-xs space-y-2 text-white/80">
               <li>
                 WhatsApp Orders:{' '}
@@ -73,7 +73,7 @@ export const Footer: React.FC = () => {
 
           {/* Col 4: Batch Notifications */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="font-['Outfit',sans-serif] font-bold text-sm text-[#DE9B27] ">Batch Alerts</h4>
+            <h2 className="font-['Outfit',sans-serif] font-bold text-sm text-[#DE9B27] ">Batch Alerts</h2>
             <p className="text-xs text-white/70">
               Be the first to know when limited batches of Nellore Mutton and seasonal mango are bottled.
             </p>
@@ -87,7 +87,7 @@ export const Footer: React.FC = () => {
             </a>
 
             <div className="pt-4 space-y-2">
-              <h4 className="font-['Outfit',sans-serif] font-bold text-sm text-[#DE9B27]">Find MKS Cooking</h4>
+              <h2 className="font-['Outfit',sans-serif] font-bold text-sm text-[#DE9B27]">Find MKS Cooking</h2>
               <MapEmbed query={SITE_CONFIG.mksCookingCoords} title="Map showing MKS Cooking in Marol, Mumbai" compact />
               <a
                 className="inline-block text-xs text-white/80 hover:text-white underline underline-offset-4"

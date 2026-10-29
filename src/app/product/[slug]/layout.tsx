@@ -3,8 +3,9 @@ import { PRODUCTS } from '@/config/products';
 import { SITE_NAME, SITE_URL, absoluteUrl, pageMetadata, truncate } from '@/lib/seo';
 
 // The product page itself is a client component, so its title, description and structured data live here.
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const product = PRODUCTS.find((p) => p.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const product = PRODUCTS.find((p) => p.slug === slug);
   if (!product) return { title: 'Product not found', robots: { index: false } };
   return pageMetadata({
     title: product.name,
@@ -14,14 +15,15 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   });
 }
 
-export default function ProductLayout({
+export default async function ProductLayout({
   children,
   params,
 }: {
   children: React.ReactNode;
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const product = PRODUCTS.find((p) => p.slug === params.slug);
+  const { slug } = await params;
+  const product = PRODUCTS.find((p) => p.slug === slug);
   if (!product) return children;
 
   const url = absoluteUrl(`/product/${product.slug}`);
