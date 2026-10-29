@@ -13,9 +13,9 @@ const SHELF = PRODUCTS.filter((p) => p.category !== 'bundle' && p.imageBg);
 const FROM_PRICE = Math.min(...PRODUCTS.flatMap((p) => p.sizes.map((s) => s.price)));
 
 const TRIO = [
-  { slug: 'garlic-pickle', note: 'Whole peeled garlic in mustard oil and toasted spices.' },
-  { slug: 'mixed-pickle', note: 'Citron, mango and ginger, sun-cured in gingelly oil.' },
-  { slug: 'mango-pickle', note: 'Crisp raw mango with Guntur chilli and fenugreek.' },
+  { slug: 'garlic-pickle', note: 'Hand-peeled garlic cloves slow-cooked in pure gingelly oil with mustard seeds, curry leaves, Kashmiri chilli and tamarind.' },
+  { slug: 'mixed-pickle', note: 'Citron, lime, ginger and green chillies, sun-cured in rock salt and steeped in pure gingelly oil with roasted fenugreek.' },
+  { slug: 'mango-pickle', note: 'Crisp raw mango with stone-ground mustard, Guntur chilli and fenugreek, cured in pure gingelly oil.' },
 ];
 
 const TRUST = [
@@ -279,7 +279,7 @@ export default function HomeClient() {
                 From the flavours of Kanyakumari to the heart of Mumbai.
               </h2>
               <p className="mt-6 text-base text-[#1c1c18]/75 leading-relaxed max-w-xl">
-                VM Pickle Pantry is built around the passion and vision of its founder, Vimal Magesh, an entrepreneur from the coastal region of Kanyakumari, Tamil Nadu. Her love of cooking and of traditional South Indian flavours is what this brand is made from.
+                VM Pickle Pantry is built around the passion and vision of its founder, Vimal Mahesh, an entrepreneur from the coastal region of Kanyakumari, Tamil Nadu. Her love of cooking and of traditional South Indian flavours is what this brand is made from.
               </p>
               <p className="mt-6 font-display font-semibold text-xl text-[#1F3A1A]">Tradition in every taste.</p>
               <Link href="/story" className="mt-6 inline-block text-sm font-semibold text-accent-500 hover:underline underline-offset-4">

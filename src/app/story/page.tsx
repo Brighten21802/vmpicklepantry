@@ -7,20 +7,20 @@ import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
   title: 'Our Story',
-  description: "VM Pickle Pantry is founded by Vimal Magesh, who brings the flavours of Kanyakumari to Mumbai.",
+  description: "VM Pickle Pantry is founded by Vimal Mahesh, who brings the flavours of Kanyakumari to Mumbai.",
   path: '/story',
 });
 
 /**
  * Add Vimal's real portrait by putting the file in /public/assets and setting its path here,
- * for example '/assets/vimal-magesh.jpg'. Until then the page shows our jar photography.
+ * for example '/assets/vimal-mahesh.jpg'. Until then the page shows our jar photography.
  */
 const FOUNDER_PORTRAIT: string | null = null;
 
 const TERRACOTTA = '#B4634A';
 
 const HIGHLIGHTS = [
-  { label: 'Founded by', value: 'Vimal Magesh' },
+  { label: 'Founded by', value: 'Vimal Mahesh' },
   { label: 'Roots', value: 'Kanyakumari, Tamil Nadu' },
   { label: 'Based in', value: 'Mumbai, Maharashtra' },
   { label: 'Restaurant', value: 'MKS Cooking, Marol, Mumbai', href: SITE_CONFIG.mksCookingUrl },
@@ -38,7 +38,7 @@ export default function StoryPage() {
               {FOUNDER_PORTRAIT ? (
                 <Image
                   src={FOUNDER_PORTRAIT}
-                  alt="Vimal Magesh, founder of VM Pickle Pantry"
+                  alt="Vimal Mahesh, founder of VM Pickle Pantry"
                   fill
                   priority
                   sizes="(max-width: 1024px) 100vw, 40vw"
@@ -70,7 +70,7 @@ export default function StoryPage() {
 
             <div className="space-y-5 text-[17px] leading-[1.8] text-[#3E2A1E]/85 max-w-2xl">
               <p>
-                VM Pickle Pantry is built around the passion and vision of its founder, <strong className="text-[#3E2A1E]">Vimal Magesh</strong>, an entrepreneur from the beautiful coastal region of Kanyakumari, Tamil Nadu.
+                VM Pickle Pantry is built around the passion and vision of its founder, <strong className="text-[#3E2A1E]">Vimal Mahesh</strong>, an entrepreneur from the beautiful coastal region of Kanyakumari, Tamil Nadu.
               </p>
               <p>
                 With a genuine love for cooking and a deep appreciation for traditional South Indian flavours, Vimal brings together her culinary passion and entrepreneurial spirit to share the taste of familiar, comforting food with more people.

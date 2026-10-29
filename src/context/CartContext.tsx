@@ -1,12 +1,45 @@
 'use client';
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { Product, ProductSize, SITE_CONFIG } from '@/config/products';
+import { Product, ProductSize, PRODUCTS, SITE_CONFIG } from '@/config/products';
 
 export interface CartItem {
   product: Product;
   size: ProductSize;
   quantity: number;
+}
+
+const MAX_LINE_QUANTITY = 50;
+
+/**
+ * A saved cart holds copies of products and sizes, so after a price change it would keep charging the old
+ * price. Rebuild every line from the current catalogue (price, weight, name), keep only the saved ids and
+ * quantity, and drop lines whose product or size no longer exists or whose quantity is invalid.
+ */
+function refreshFromCatalogue(saved: unknown[]): CartItem[] {
+  const addOns = PRODUCTS.flatMap((p) => p.goesWellWith);
+  const refreshed: CartItem[] = [];
+  for (const raw of saved) {
+    const line = raw as Partial<CartItem> | null;
+    const productId = line?.product?.id;
+    const sizeId = line?.size?.id;
+    const quantity = Math.floor(Number(line?.quantity));
+    if (!productId || !sizeId || !Number.isFinite(quantity) || quantity < 1) continue;
+    const product = PRODUCTS.find((p) => p.id === productId);
+    if (!product) continue;
+    const qty = Math.min(quantity, MAX_LINE_QUANTITY);
+
+    if (sizeId.startsWith('addon-')) {
+      const addOn = addOns.find((a) => `addon-${a.id}` === sizeId);
+      if (!addOn || !line?.size) continue;
+      // Keep the add-on's saved shape (volume, per-100g) but take its price from the catalogue.
+      refreshed.push({ product, size: { ...line.size, name: addOn.name, price: addOn.price }, quantity: qty });
+      continue;
+    }
+    const size = product.sizes.find((s) => s.id === sizeId);
+    if (size) refreshed.push({ product, size, quantity: qty });
+  }
+  return refreshed;
 }
 
 interface CartContextType {
@@ -51,7 +84,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       const saved = localStorage.getItem('vm_pickle_pantry_cart');
       if (saved) {
         const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed)) setItems(parsed);
+        if (Array.isArray(parsed)) setItems(refreshFromCatalogue(parsed));
       }
     } catch (e) {
       console.error('Failed to load cart from localStorage:', e);
@@ -82,7 +115,9 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       if (existingIndex > -1) {
         // Copy the item rather than mutating it, so Strict Mode's double-run doesn't add twice
         return prev.map((item, idx) =>
-          idx === existingIndex ? { ...item, quantity: item.quantity + quantity } : item
+          idx === existingIndex
+            ? { ...item, quantity: Math.min(item.quantity + quantity, MAX_LINE_QUANTITY) }
+            : item
         );
       }
       return [...prev, { product, size, quantity }];
@@ -104,7 +139,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     setItems((prev) =>
       prev.map((i) =>
         i.product.id === productId && i.size.id === sizeId
-          ? { ...i, quantity }
+          ? { ...i, quantity: Math.min(quantity, MAX_LINE_QUANTITY) }
           : i
       )
     );

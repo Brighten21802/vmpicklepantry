@@ -68,7 +68,7 @@ export default function RootLayout({
     url: SITE_URL,
     logo: absoluteUrl('/assets/logo.png'),
     description: DEFAULT_DESCRIPTION,
-    founder: { '@type': 'Person', name: 'Vimal Magesh' },
+    founder: { '@type': 'Person', name: 'Vimal Mahesh' },
     contactPoint: [
       {
         '@type': 'ContactPoint',
