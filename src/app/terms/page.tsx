@@ -12,11 +12,7 @@ export const metadata = pageMetadata({
 const sections = [
   {
     title: 'Orders and pricing',
-    body: `All prices are in Indian rupees and include applicable taxes. Orders above ₹${SITE_CONFIG.freeShippingThreshold} ship free; otherwise a ₹${SITE_CONFIG.defaultShippingFee} shipping fee applies. We may cancel an order if a product is unavailable and will refund any payment made.`,
-  },
-  {
-    title: 'Small batches',
-    body: 'Our pickles are made in small batches, so colour, texture and heat can vary slightly between jars. This is normal for handmade food and does not count as a defect.',
+    body: `All prices are in Indian rupees. Orders above ₹${SITE_CONFIG.freeShippingThreshold} ship free; otherwise a ₹${SITE_CONFIG.defaultShippingFee} shipping fee applies.`,
   },
   {
     title: 'Shipping',
@@ -28,7 +24,7 @@ const sections = [
   },
   {
     title: 'Storage and allergens',
-    body: 'Follow the storage instructions on each product page. Our kitchen handles sesame, mustard and meat, so please check ingredients before you order if you have allergies.',
+    body: 'Follow the storage instructions on each product page. If you have allergies, check the ingredient list on the product page before you order.',
   },
   {
     title: 'Contact',

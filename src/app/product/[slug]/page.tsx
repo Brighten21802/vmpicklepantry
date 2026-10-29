@@ -45,7 +45,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
   const handlePincodeCheck = (e: React.FormEvent) => {
     e.preventDefault();
     if (/^[1-9]\d{5}$/.test(pincodeInput)) {
-      setPincodeMessage(`Pincode ${pincodeInput} is serviceable! Guaranteed delivery in 2-3 business days.`);
+      setPincodeMessage(`Pincode ${pincodeInput} looks valid. Delivery usually takes 2 to 4 business days after dispatch.`);
     } else {
       setPincodeMessage('Please enter a valid 6-digit Indian postal code.');
     }

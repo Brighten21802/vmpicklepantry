@@ -344,11 +344,11 @@ export const CartDrawer: React.FC = () => {
                   <div className="flex items-center justify-between text-xs font-semibold text-forest-900">
                     <span className="flex items-center gap-1.5">
                       <MapPin className="w-3.5 h-3.5 text-forest-800" />
-                      Delivery Pincode Check
+                      Pincode
                     </span>
                     {pincodeStatus === 'serviceable' && (
                       <span className="text-emerald-700 font-bold text-[11px] flex items-center gap-1">
-                        <CheckCircle2 className="w-3 h-3" /> Serviceable
+                        <CheckCircle2 className="w-3 h-3" /> Valid pincode
                       </span>
                     )}
                   </div>
