@@ -209,6 +209,9 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
               <form onSubmit={handlePincodeCheck} className="flex gap-2">
                 <input
                   type="text"
+                  inputMode="numeric"
+                  autoComplete="postal-code"
+                  aria-label="Delivery pincode"
                   maxLength={6}
                   value={pincodeInput}
                   onChange={(e) => setPincodeInput(e.target.value)}
