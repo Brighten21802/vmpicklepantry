@@ -279,7 +279,7 @@ export default function HomeClient() {
                 From the flavours of Kanyakumari to the heart of Mumbai.
               </h2>
               <p className="mt-6 text-base text-[#1c1c18]/75 leading-relaxed max-w-xl">
-                VM Pickle Pantry is built around the passion and vision of its founder, Vimal Mahesh, an entrepreneur from the coastal region of Kanyakumari, Tamil Nadu. Her love of cooking and of traditional South Indian flavours is what this brand is made from.
+                VM Pickle Pantry is founded by Mahesh Nadar and co-founded by Vimal Mahesh, an entrepreneur from the coastal region of Kanyakumari, Tamil Nadu. Vimal&apos;s love of cooking and of traditional South Indian flavours is what this brand is made from.
               </p>
               <p className="mt-6 font-display font-semibold text-xl text-[#1F3A1A]">Tradition in every taste.</p>
               <Link href="/story" className="mt-6 inline-block text-sm font-semibold text-accent-500 hover:underline underline-offset-4">
